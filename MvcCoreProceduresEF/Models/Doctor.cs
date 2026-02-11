@@ -6,11 +6,11 @@ namespace MvcCoreProceduresEF.Models
     [Table("DOCTOR")]
     public class Doctor
     {
-        [Column("HOSPITAL_COD")]
-        public int IdHospital { get; set; }
         [Key]
         [Column("DOCTOR_NO")]
         public int IdDoctor { get; set; }
+        [Column("HOSPITAL_COD")]
+        public int IdHospital { get; set; }
         [Column("APELLIDO")]
         public string Apellido { get; set; }
         [Column("ESPECIALIDAD")]
