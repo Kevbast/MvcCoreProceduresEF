@@ -1,0 +1,59 @@
+﻿@model List<Doctor>
+
+<h1>DOCTORES POR ESPECIALIDAD </h1>
+
+<form method="post">
+    <label>Especialidad</label>
+    <select name="especialidad" class="form-control">
+
+        @{
+             List<string> especialidades = (List<string>)ViewData["ESPECIALIDADES"];//SE HACE UN CASTING PARA ESPECIFICAR QUÉ NOS LLEGA
+            }
+
+        @foreach (string especialidad in especialidades)//in ViewData["ESPECIALIDADES"] así solo no funciona
+            {
+            <option value="@especialidad">@especialidad</option>
+            //REALMENTE ES LO MISMO SIN PONER VALUE YA QUE RECOGERÍA EL NOMBRE DEL OPTION
+            }
+        </select>
+        <label>INCREMENTO</label>
+    <input type="number" name="incremento" class="form-control" />
+
+    <button name="btn" value="buscar" class="btn btn-success">Buscar </button>
+    <button name="btn" value="procedure" class="btn btn-danger">Incrementar Doctores </button>
+
+    <button name="btn" value="sinprocedure" class="btn btn-info">Buscar Doctores Sin Procedure </button>
+</form>
+
+
+<br />
+
+    @if(Model != null)
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Especialidad</th>
+                <th>Salario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Doctor doctor in Model)
+            {
+                <tr>
+                    <td>@doctor.IdDoctor</td>
+                    <td>@doctor.Apellido</td>
+                    <td>@doctor.Especialidad</td>
+                    <td>@doctor.Salario</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+else
+{
+    <h2>Selecciona una especialidad a la cual hacer el incremento</h2>
+}

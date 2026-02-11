@@ -7,5 +7,7 @@ namespace MvcCoreProceduresEF.Data
     {
         public EnfermosContext(DbContextOptions<EnfermosContext> options):base(options) { }
         public DbSet<Enfermo> Enfermos { get; set; }
+        //Añadimos un model más
+        public DbSet<Doctor> Doctores { get; set; }
     }
 }
