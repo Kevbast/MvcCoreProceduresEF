@@ -114,7 +114,7 @@ namespace MvcCoreProceduresEF.Repositories
             var consulta = from datos in this.context.Doctores where datos.Especialidad == especialidad
                            select datos;
 
-            foreach (Doctor doc in consulta.ToList())
+            foreach (Doctor doc in consulta)
             {
                 doc.Salario += incremento;
             }
