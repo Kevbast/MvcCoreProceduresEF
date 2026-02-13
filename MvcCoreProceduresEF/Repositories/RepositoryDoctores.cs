@@ -31,19 +31,12 @@ namespace MvcCoreProceduresEF.Repositories
     public class RepositoryDoctores
     {
 
-        SqlConnection cn;
-        SqlCommand com;
         //Implementamos el mismo context
         private HospitalContext context;
 
         public RepositoryDoctores(HospitalContext context)
         {
             this.context = context;
-
-            string connectionString = @"Data Source=LOCALHOST\DEVELOPER;Initial Catalog=HOSPITAL;Persist Security Info=True;User ID=SA;Encrypt=True;Trust Server Certificate=True";
-            this.cn = new SqlConnection(connectionString);
-            this.com = new SqlCommand();
-            this.com.Connection = this.cn;
 
         }
 
