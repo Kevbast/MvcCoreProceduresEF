@@ -34,9 +34,9 @@ namespace MvcCoreProceduresEF.Repositories
         SqlConnection cn;
         SqlCommand com;
         //Implementamos el mismo context
-        private EnfermosContext context;
+        private HospitalContext context;
 
-        public RepositoryDoctores(EnfermosContext context)
+        public RepositoryDoctores(HospitalContext context)
         {
             this.context = context;
 

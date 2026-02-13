@@ -1,0 +1,74 @@
+﻿@model TrabajadoresModel
+
+@{//implementamos los oficios
+    List<string>oficios= ViewData["OFICIOS"] as List<string>; 
+}
+<h1>View Trabajadores</h1>
+<form  method="post">
+    <label>Seleccione un oficio</label>
+    <select name="oficio" class=" form-control">
+        @foreach (string ofi in oficios)
+            {//REVISAR EL VALUE quitarmlo si ponemos name
+            <option>@ofi</option>
+            }
+        </select>
+        <button class="btn btn-danger">Buscar trabajadores</button>
+</form>
+<ul class="list-group">
+<li class="list-group-item">Personas:<b>@Model.Personas</b></li>
+<li class="list-group-item">SumaSalarial:<b>@Model.SumaSalarial</b></li>
+<li class="list-group-item">MediaSalarial:<b>@Model.MediaSalarial</b></li>
+</ul>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                IdTrabajador
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Oficio
+            </th>
+            <th>
+                Salario
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Trabajadores) {
+        <tr>
+            <td>
+                @item.IdTrabajador
+            </td>
+            <td>
+                @item.Apellido
+            </td>
+            <td>
+                @item.Oficio
+            </td>
+            <td>
+                @item.Salario
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
